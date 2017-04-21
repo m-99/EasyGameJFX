@@ -7,56 +7,46 @@ import javafx.scene.image.Image;
 
 public class Sprite {
     private Image image;
-    private Node node;
-    private FrameHandler handler;
-    private double heading;
+    private double positionX;
+    private double positionY;
+    private double velocityX;
+    private double velocityY;
+    private double width;
+    private double height;
 
-    public Sprite(Node inNode,double heading, Image image) {
-        super();
-        node = inNode;
-
-        this.heading = heading;
-        this.image = image;
+    public Sprite(double positionX, double positionY) {
+        this.positionX = positionX;
+        this.positionY = positionY;
     }
 
     public Sprite() {
-        this(new Rectangle(10,10),0,null);
+        this(0.0, 0.0);
     }
 
-    public void addFrameHandler(FrameHandler handler) {
-        this.handler = handler;
+    public void setImage(Image image) {
+        this.image = image;
+        width = image.getWidth();
+        height = image.getHeight();
     }
 
-    public FrameHandler getFrameHandler() {
-        return handler;
+    public void setImage(String filepath) {
+        Image image = new Image(filepath);
+        setImage(image);
     }
 
-    public Node getNode()
-    {
-        return node;
+    public void setPosition(double positionX, double positionY) {
+        this.positionX = positionX;
+        this.positionY = positionY;
     }
 
-    public void rotate(double theta) {
-        theta = Math.toRadians(theta);
-        heading +=theta;
-        node.setRotate(node.getRotate()+theta);
-    }
-    public void setHeading(double theta) {
-        theta = Math.toRadians(theta);
-        heading = theta;
-        node.setRotate(theta);
+    public void setVelocity(double velocityX, double velocityY) {
+        this.velocityX = velocityX;
+        this.velocityY = velocityY;
     }
 
-    public void moveForward(double dist) {
-        node.setTranslateX(node.getTranslateX()+dist*Math.cos(heading));
-        node.setTranslateY(node.getTranslateY()+dist*Math.sin(heading));
+    public void addVelocity(double velocityX, double velocityY) {
+        this.velocityX += velocityX;
+        this.velocityY += velocityY;
     }
-
-    public void translateX(double dist) {
-        node.setTranslateX(node.getTranslateX()+dist);
-    }
-
-    public void translateY(double dist) {
-        node.setTranslateY(node.getTranslateY()+dist);
-    }
+    
 }
