@@ -1,4 +1,4 @@
-package jbfx.animation;
+package egjfx.animation;
 
 import javafx.animation.AnimationTimer;
 

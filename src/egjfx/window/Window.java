@@ -1,11 +1,10 @@
-package jbfx.window;
+package egjfx.window;
 
-import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import jbfx.sprite.*;
+import egjfx.sprite.*;
 import java.util.ArrayList;
 
 /**

@@ -1,10 +1,9 @@
-package jbfx.sample;
+package egjfx.sample;
 
 import javafx.application.Application;
-import jbfx.animation.FrameHandler;
-import javafx.animation.AnimationTimer;
-import jbfx.sprite.Sprite;
-import jbfx.window.Window;
+import egjfx.animation.FrameHandler;
+import egjfx.sprite.Sprite;
+import egjfx.window.Window;
 
 public class Main {
     public static void main(String[] args) {

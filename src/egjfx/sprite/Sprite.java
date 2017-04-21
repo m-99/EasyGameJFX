@@ -1,8 +1,8 @@
-package jbfx.sprite;
+package egjfx.sprite;
 
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
-import jbfx.animation.FrameHandler;
+import egjfx.animation.FrameHandler;
 import javafx.scene.image.Image;
 
 public class Sprite {
