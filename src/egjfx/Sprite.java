@@ -1,12 +1,12 @@
-package egjfx.sprite;
+package egjfx;
 
-import javafx.scene.Node;
-import javafx.scene.shape.Rectangle;
-import egjfx.animation.FrameHandler;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class Sprite {
     private Image image;
+    private AnimatedImage animatedImage;
     private double positionX;
     private double positionY;
     private double velocityX;
@@ -48,5 +48,21 @@ public class Sprite {
         this.velocityX += velocityX;
         this.velocityY += velocityY;
     }
-    
+
+    public void update(double time) {
+        positionX += velocityX * time;
+        positionY += velocityY * time;
+    }
+
+    public void render(GraphicsContext graphicsContext) {
+        graphicsContext.drawImage(image, positionX, positionY);
+    }
+
+    public Rectangle2D getBoundary() {
+        return new Rectangle2D(positionX, positionY, width, height);
+    }
+
+    public boolean isCollidingWith(Sprite other) {
+        return other.getBoundary().intersects(this.getBoundary());
+    }
 }
